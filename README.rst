@@ -23,12 +23,8 @@ This example makes use `msgspec.Struct` types to define the different GeoJSON
 types, and :ref:`struct-tagged-unions` to differentiate between them. See the
 relevant docs for more information.
 
-The full example source can be found `here
+The original source code can be found `here
 <https://github.com/jcrist/msgspec/blob/main/examples/geojson>`__.
-
-.. literalinclude:: ../../../examples/geojson/msgspec_geojson.py
-    :language: python
-
 
 Here we use the ``loads`` method defined above to read some `example GeoJSON`_.
 
