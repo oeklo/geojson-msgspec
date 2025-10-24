@@ -1,3 +1,6 @@
+This project contains code published as an example in the `msgspec project <https://jcristharif.com/msgspec/>`
+backported to python 3.8.
+
 GeoJSON
 =======
 
@@ -17,15 +20,11 @@ standard library's ``json.loads``/``json.dumps``, but:
   most other ``json`` implementations in Python).
 
 This example makes use `msgspec.Struct` types to define the different GeoJSON
-types, and :ref:`struct-tagged-unions` to differentiate between them. See the
+types, and `struct-tagged-unions`_ to differentiate between them. See the
 relevant docs for more information.
 
-The full example source can be found `here
+The original source code can be found `here
 <https://github.com/jcrist/msgspec/blob/main/examples/geojson>`__.
-
-.. literalinclude:: ../../../examples/geojson/msgspec_geojson.py
-    :language: python
-
 
 Here we use the ``loads`` method defined above to read some `example GeoJSON`_.
 
@@ -74,3 +73,4 @@ loading the data using ``msgspec`` was **15.3x faster**.
 .. _example GeoJSON: https://github.com/jcrist/msgspec/blob/main/examples/geojson/canada.json
 .. _orjson: https://github.com/ijl/orjson
 .. _geojson: https://github.com/jazzband/geojson
+.. _struct-tagged-unions: https://jcristharif.com/msgspec/structs.html#tagged-unions

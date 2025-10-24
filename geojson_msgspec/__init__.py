@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from typing import Optional, Union
+
 import msgspec
 
 Position = tuple[float, float]
@@ -36,22 +38,22 @@ class GeometryCollection(msgspec.Struct, tag=True):
     geometries: list[Geometry]
 
 
-Geometry = (
-    Point
-    | MultiPoint
-    | LineString
-    | MultiLineString
-    | Polygon
-    | MultiPolygon
-    | GeometryCollection
-)
+Geometry = Union[
+    Point,
+    MultiPoint,
+    LineString,
+    MultiLineString,
+    Polygon,
+    MultiPolygon,
+    GeometryCollection,
+]
 
 
 # Define the two Feature types
 class Feature(msgspec.Struct, tag=True):
-    geometry: Geometry | None = None
-    properties: dict | None = None
-    id: str | int | None = None
+    geometry: Optional[Geometry] = None
+    properties: Optional[dict] = None
+    id: Union[str, int, None] = None
 
 
 class FeatureCollection(msgspec.Struct, tag=True):
@@ -59,7 +61,7 @@ class FeatureCollection(msgspec.Struct, tag=True):
 
 
 # A union of all 9 GeoJSON types
-GeoJSON = Geometry | Feature | FeatureCollection
+GeoJSON = Union[Geometry, Feature, FeatureCollection]
 
 
 # Create a decoder and an encoder to use for decoding & encoding GeoJSON types

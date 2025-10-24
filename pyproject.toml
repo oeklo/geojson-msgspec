@@ -1,24 +1,27 @@
-[tool.ruff]
-exclude = [
-    "*.pyi",
-    "__init__.py",
-    "_version.py",
-    "versioneer.py",
-    "basic_typing_examples.py",
-    "json.py",
-    "msgpack.py",
-    "test_JSONTestSuite.py",
-    "conf.py",
+[project]
+name = "geojson-msgspec"
+version = "1.0.0"
+description = "msgspec GeoJSON model"
+readme = "README.rst"
+requires-python = ">=3.9"
+dependencies = [
+    "msgspec>=0.19,<0.20",
 ]
-line-length = 88
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+
+[tool.mypy]
+python_version = "3.9"
+packages=["geojson_msgspec"]
+disable_error_code = ["call-arg"]
+
+[tool.ruff]
+target-version = "py39"
 
 [tool.ruff.lint]
-ignore = [
-    "E721", # Comparing types instead of isinstance
-    "E741", # Ambiguous variable names
-    "E501", # Conflicts with ruff format
-    "W191", # Conflicts with ruff format
-]
 select = [
     "E", # PEP8 Errors
     "F", # Pyflakes
